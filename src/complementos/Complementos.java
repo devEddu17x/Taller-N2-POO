@@ -81,4 +81,16 @@ public class Complementos {
                 && !mes.equals("Diciembre"));
         return mes;
     }
+
+    public static int generarMCD(int numerador, int denominador) {
+        numerador = Math.abs(numerador);
+        denominador = Math.abs(denominador);
+        int aux = 1;
+        while (denominador != 0) {
+            aux = denominador;
+            denominador = numerador % denominador;
+            numerador = aux;
+        }
+        return aux;
+    }
 }
