@@ -1,18 +1,6 @@
-## Getting Started
+ #**Taller N° 2 POO**
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+ ##Ejercicios:---
+   1. Crear una clase Trabajador con los siguientes atributos: nombre, salario por hora y cantidad de horas laboradas.La clase cuenta con métodos que permiten calcular: el sueldo bruto (salario por hora * cantidad de horas laboradas), el descuento equivalente al 12% del sueldo bruto y el sueldo neto (sueldo bruto menos descuento). La aplicación debe permitir capturar los datos de un trabajador y luego mostrar los cálculos realizados.
 
-## Folder Structure
 
-The workspace contains two folders by default, where:
-
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
-
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
-
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
-
-## Dependency Management
-
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
