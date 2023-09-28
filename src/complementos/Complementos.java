@@ -19,12 +19,12 @@ public class Complementos {
                     numero = sc.nextDouble();
                     numeroValido = true;
                 } catch (InputMismatchException errrorDouble) {
-                    System.out.println(error);
+                    System.err.println(error);
                     sc.nextLine();
                 }
             }
             if (numero < minimo || numero > maximo) {
-                System.out.println(rangoError);
+                System.err.println(rangoError);
                 sc.nextLine();
             }
         } while (numero < minimo || numero > maximo);
@@ -43,13 +43,13 @@ public class Complementos {
                     numero = sc.nextInt();
                     numeroValido = true;
                 } catch (InputMismatchException errorInt) {
-                    System.out.println(error);
+                    System.err.println(error);
                     sc.nextLine();
                 }
             }
 
             if (numero < minimo || numero > maximo) {
-                System.out.println(rangoError);
+                System.err.println(rangoError);
                 sc.nextLine();
             }
         } while (numero < minimo || numero > maximo);
@@ -58,9 +58,9 @@ public class Complementos {
     }
 
     public static int menu(String menu, int maximo) {
-        System.out.println("\n\t\tMENU");
-        System.out.println(menu);
-        System.out.println(maximo + ". Salir.");
+        System.err.println("\n\t\tMENU");
+        System.err.println(menu);
+        System.err.println(maximo + ". Salir.");
         return validarInt(maximo, 1, "\nIngrese la opcion: ", "No se ha ingresado un formato valido.",
                 "La opcion debe estar en el rango de [1-" + maximo + "]");
     }
@@ -73,7 +73,7 @@ public class Complementos {
             if (!mes.isEmpty()) {
                 mes = mes.substring(0, 1).toUpperCase() + mes.substring(1);
             } else {
-                System.out.println("El mes es invalido.");
+                System.err.println("El mes es invalido.");
             }
         } while (!mes.equals("Enero") && !mes.equals("Febrero") && !mes.equals("Marzo") && !mes.equals("Abril")
                 && !mes.equals("Mayo") && !mes.equals("Junio") && !mes.equals("Julio") && !mes.equals("Agosto")

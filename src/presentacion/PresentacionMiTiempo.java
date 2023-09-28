@@ -29,7 +29,7 @@ public class PresentacionMiTiempo {
                         "La opcion no es valida.", "La opcion debe estar en el rango (1-3).");
                 ListaMiTiempo.mostrarMisTiempos();
                 int indice = Complementos.validarInt(ListaMiTiempo.getTamaño(), 1,
-                        "Ingrese el indice de la horaa modificar: ", "Error: No se ha ingresado un indice valido.",
+                        "Ingrese el indice de la hora modificar: ", "Error: No se ha ingresado un indice valido.",
                         "El indice debe estar en el rango (1-" + ListaMiTiempo.getTamaño() + ")");
                 indice--;
                 int aumento = Complementos.validarInt(150, 1, "Ingrese el aumnento: ",

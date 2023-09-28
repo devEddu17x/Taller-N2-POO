@@ -12,11 +12,11 @@ public class PresentacionMiFecha {
 
     public static void main(String[] args) {
         int opcion;
-        String menu = "\n1. Agregar fecha.\n2. Mostrar fechas en diferentes formatos.";
+        String menu = "\n1. Agregar fecha.\n2. Mostrar fechas en diferentes formatos.\n3. Modificar fechas.";
         do {
-            opcion = Complementos.menu(menu, 3);
+            opcion = Complementos.menu(menu, 4);
             ejecutar(opcion);
-        } while (opcion != 3);
+        } while (opcion != 4);
     }
 
     public static void ejecutar(int x) {
@@ -35,6 +35,25 @@ public class PresentacionMiFecha {
                 }
                 break;
             case 3:
+                if (existenFechas > 0) {
+                    System.out.println("\n1. Modificar dia. \n2. Modificar mes.");
+                    int parametroDeAumento = Complementos.validarInt(2, 1, "Ingrese el valor que quiere modificar: ",
+                            "La opcion no es valida.", "La opcion debe estar en el rango (1-2).");
+                    ListaFecha.mostrarFechas();
+                    int indice = Complementos.validarInt(ListaFecha.getTamaño(), 1,
+                            "Ingrese el indice de la fecha a modificar: ", "Error: No se ha ingresado un indice valido.",
+                            "El indice debe estar en el rango (1-" + ListaFecha.getTamaño() + ")");
+                    indice--;
+                    int aumento = Complementos.validarInt(12, 1, "Ingrese el aumento: ",
+                            "Error: El aumento debe ser un numero entero.", "El rango de aumento es de (1-12)");
+
+                    ListaFecha.modificarFechas(parametroDeAumento, indice, aumento);
+                } else {
+                    System.out.println("Primero agregue fechas.");
+                }
+
+                break;
+            case 4:
                 System.out.println("Adios");
         }
     }
