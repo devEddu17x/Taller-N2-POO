@@ -12,7 +12,7 @@ public class ListaFecha {
 
     public static void mostrarFechas() {
 
-        System.out.println("INDICE \t\tFORMATO     1\t\t  FORMATO 2\t\t   FORMATO 3\t\t  FORMATO 4\n");
+        System.out.println("\nINDICE \t\tFORMATO     1\t\t  FORMATO 2\t\t   FORMATO 3\t\t  FORMATO 4\n");
         int i=1;
         for (MiFecha fecha : listaFechas) {
             System.out.println(i+"\t\t"+fecha.getFormatoFecha());
@@ -25,9 +25,9 @@ public class ListaFecha {
     }
 
     public static void modificarFechas(int parametroDeAumento, int indice, int aumento){
-        System.out.println("La fecha a modifica es: "+listaFechas.get(indice).getFormatoFecha());
+        System.out.println("\nLa fecha a modificar es: "+listaFechas.get(indice).getFormatoFecha());
         MiFecha nuevaFecha = listaFechas.get(indice).aumentarFecha(parametroDeAumento, aumento);
-        System.out.println(nuevaFecha.getFormatoFecha());
+        System.out.println("La nueva fecha es: \t"+nuevaFecha.getFormatoFecha());
         listaFechas.set(indice, nuevaFecha);
     }
 }

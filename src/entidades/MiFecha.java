@@ -1,20 +1,24 @@
 package entidades;
-//import java.time.LocalDate;
-
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.time.format.DateTimeParseException;
-import java.util.Locale;
 
 public class MiFecha {
 
-    String formato[] = new String[4];
-    public MiFecha(String nuevoFormato[]){
-        for (int i=0; i<4; i++){
+    private String formato[] = new String[4];
+    private int dia;
+    private int mes;
+    private int año;
+
+    public MiFecha(String nuevoFormato[]) {
+        for (int i = 0; i < 4; i++) {
             formato[i] = nuevoFormato[i];
         }
     }
+
     public MiFecha(int dia, int mes, int año) {
+
+        this.dia = dia;
+        this.mes = mes;
+        this.año = año;
+
         String diaParametro = verificarCeros(dia);
         String mesParametro = verificarCeros(mes);
         String añoParametro = verificarCeros(año);
@@ -26,6 +30,9 @@ public class MiFecha {
     }
 
     public MiFecha(String mes, int dia, int año) {
+        this.dia = dia;
+        this.mes = generarMes(mes);
+        this.año = año;
         String diaParametro = verificarCeros(dia);
         String mesParametro = verificarCeros(generarMes(mes));
         String añoParametro = verificarCeros(año);
@@ -37,6 +44,10 @@ public class MiFecha {
     }
 
     public MiFecha(String mes, int año) {
+        
+        dia = 0;
+        this.mes = generarMes(mes);
+        this.año = año;
         String añoParametro = verificarCeros(año);
         String mesParametro = verificarCeros(generarMes(mes));
         formato[0] = mesParametro + "/" + añoParametro;
@@ -58,46 +69,28 @@ public class MiFecha {
     }
 
     public MiFecha aumentarFecha(int parametroDeAumento, int aumento) {
-        DateTimeFormatter dateFormat0 = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        DateTimeFormatter dateFormat1 = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        DateTimeFormatter dateFormat2 = DateTimeFormatter.ofPattern("MMMM dd ',' yyyy", new Locale("es", "PE"));
-        DateTimeFormatter dateFormat3 = DateTimeFormatter.ofPattern("MMMM yyyy", new Locale("es", "PE"));
-    
-        try {
-            LocalDate date0 = LocalDate.parse(formato[0], dateFormat0);
-            LocalDate date1 = LocalDate.parse(formato[1], dateFormat1);
-            LocalDate date2 = LocalDate.parse(formato[2], dateFormat2);
-            LocalDate date3 = LocalDate.parse(formato[3], dateFormat3);
-    
-            if (parametroDeAumento == 1) {
-                if (date0.getDayOfMonth() + aumento < date0.getMonth().lengthOfMonth()) {
-                    date0 = date0.plusDays((long) aumento);
-                } else {
-                    date0 = date0.plusMonths((long) aumento);
-                }
-            } else {
-                date0 = date0.plusMonths((long) aumento);
-            }
-    
-            String nuevosFormatos[] = new String[4];
-    
-            nuevosFormatos[0] = date0.format(dateFormat0);
-            nuevosFormatos[1] = date1.format(dateFormat1);
-            nuevosFormatos[2] = date2.format(dateFormat2);
-            nuevosFormatos[3] = date3.format(dateFormat3);
-    
-            return new MiFecha(nuevosFormatos);
-    
-        } catch (DateTimeParseException e) {
-            if (parametroDeAumento == 1) {
-                System.err.println("No se puede aumentar el dia de una fecha invalida");
-            } else {
-                System.err.println("No se puede aumentar el mes de una fecha invalida");
-            }
-            return this;
-        }
-    }
+        int nuevoDia = dia;
+        int nuevoMes = mes;
+        int nuevoAnio = año;
 
+        if (parametroDeAumento == 1) {
+            nuevoDia += aumento;
+
+            while (nuevoDia > 31) {
+                nuevoDia -= 31;
+                nuevoMes++;
+            }
+        } else {
+            nuevoMes += aumento;
+
+            while (nuevoMes > 12) {
+                nuevoMes -= 12;
+                nuevoAnio++;
+            }
+        }
+
+        return new MiFecha(nuevoDia, nuevoMes, nuevoAnio);
+    }
 
     public String generarMes(int mes) {
         switch (mes) {
@@ -136,7 +129,7 @@ public class MiFecha {
                 return 1;
             case "Febrero":
                 return 2;
-            case "marzo":
+            case "Marzo":
                 return 3;
             case "Abril":
                 return 4;
