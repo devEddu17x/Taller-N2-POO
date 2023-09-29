@@ -10,6 +10,13 @@ public class MiFraccion {
         int mcd = Complementos.generarMCD(numerador, denominador);
         this.numerador = numerador / mcd;
         this.denominador = denominador / mcd;
+        if (this.numerador <0 && this.denominador < 0){
+            this.numerador*=-1;
+            this.denominador/=-1;
+        } if (this.numerador<0 || this.denominador<0){
+            this.denominador = Math.abs(denominador);
+            this.numerador = Math.abs(numerador) *-1;
+        }
     }
 
     public MiFraccion() {
@@ -38,6 +45,7 @@ public class MiFraccion {
 
         numeradorAux /= mcd;
         denominadorAux /= mcd;
+
 
         MiFraccion resultado = new MiFraccion(numeradorAux, denominadorAux);
         return resultado;
@@ -70,6 +78,12 @@ public class MiFraccion {
         return resultado;
     }
 
+    public double devolverEnDecimales(int numeroDecimales){
+        double division = (double) numerador/denominador;
+        double multiplicador = Math.pow(10, numeroDecimales);
+        return Math.round(division*multiplicador)/multiplicador;
+    }
+    
     @Override
     public String toString() {
         return numerador + "/" + denominador;
