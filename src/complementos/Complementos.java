@@ -57,6 +57,37 @@ public class Complementos {
         return numero;
     }
 
+    public static String validarString(String solicitud, String error) {
+        String string = "";
+        boolean stringValido = false;
+
+        while (!stringValido) {
+            System.out.print(solicitud);
+            if (sc.hasNextInt() || sc.hasNextDouble()) {
+                System.out.println("Solo numeros no es un nombre.");
+                sc.nextLine();
+                sc.nextLine();
+            } else {
+                try {
+
+                    string = sc.next();
+                    if (!string.isEmpty()) {
+                        stringValido = true;
+                    } else {
+                        System.out.println("La cadena ingresada está vacía");
+                    }
+                } catch (InputMismatchException errorString) {
+                    System.out.println(error);
+                    sc.nextLine();
+                }
+            }
+
+        }
+
+        return string;
+
+    }
+
     public static int menu(String menu, int maximo) {
         System.err.println("\n\t\tMENU");
         System.err.println(menu);
