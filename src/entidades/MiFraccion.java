@@ -28,11 +28,6 @@ public class MiFraccion {
         int numeradorAux = fraccion1.numerador * fraccion2.denominador + fraccion2.numerador * fraccion1.denominador;
         int denominadorAux = fraccion1.denominador * fraccion2.denominador;
 
-        int mcd = Complementos.generarMCD(numeradorAux, denominadorAux);
-
-        numeradorAux /= mcd;
-        denominadorAux /= mcd;
-
         MiFraccion resultado = new MiFraccion(numeradorAux, denominadorAux);
         return resultado;
     }
@@ -40,12 +35,6 @@ public class MiFraccion {
     public static MiFraccion restarFracciones(MiFraccion fraccion1, MiFraccion fraccion2) {
         int numeradorAux = fraccion1.numerador * fraccion2.denominador - fraccion2.numerador * fraccion1.denominador;
         int denominadorAux = fraccion1.denominador * fraccion2.denominador;
-
-        int mcd = Complementos.generarMCD(numeradorAux, denominadorAux);
-
-        numeradorAux /= mcd;
-        denominadorAux /= mcd;
-
 
         MiFraccion resultado = new MiFraccion(numeradorAux, denominadorAux);
         return resultado;
@@ -56,11 +45,6 @@ public class MiFraccion {
         int numeradorAux = fraccion1.numerador * fraccion2.numerador;
         int denominadorAux = fraccion1.denominador * fraccion2.denominador;
 
-        int mcd = Complementos.generarMCD(numeradorAux, denominadorAux);
-
-        numeradorAux /= mcd;
-        denominadorAux /= mcd;
-
         MiFraccion resultado = new MiFraccion(numeradorAux, denominadorAux);
         return resultado;
     }
@@ -68,12 +52,7 @@ public class MiFraccion {
     public static MiFraccion dividirFracciones(MiFraccion fraccion1, MiFraccion fraccion2) {
         int numeradorAux = fraccion1.numerador*fraccion2.denominador;
         int denominadorAux = fraccion1.denominador * fraccion2.numerador;
-
-        int mcd = Complementos.generarMCD(numeradorAux, denominadorAux);
-
-        numeradorAux /= mcd;
-        denominadorAux /= mcd;
-
+        
         MiFraccion resultado = new MiFraccion(numeradorAux, denominadorAux);
         return resultado;
     }
