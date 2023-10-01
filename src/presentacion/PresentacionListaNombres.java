@@ -38,8 +38,8 @@ public class PresentacionListaNombres {
                 break;
             case 3:
                 if (contadorEnteros >= 1) {
-                    int indice = Complementos.validarInt(Integer.MAX_VALUE, Integer.MIN_VALUE, "Ingrese su posicion: ",
-                            "Error: No se ha ingresado un entero. ", "x");
+                    int indice = Complementos.validarInt(ListaNombre.getUltimaPosicion(), 1, "Ingrese su posicion: ",
+                            "Error: No se ha ingresado un entero. ", "Solo hay posiciones de (1-"+ListaNombre.getUltimaPosicion()+")");
 
                     ListaNombre.eliminarNombre(indice - 1);
                     contadorEnteros--;
@@ -54,7 +54,6 @@ public class PresentacionListaNombres {
                             "Error: la posicion no es valida. ",
                             "La posicion solo puede estar entre (1-" + ListaNombre.getUltimaPosicion()
                                     + ")");
-
                     System.out.println("El nombre es " + ListaNombre.getNombre(posición - 1));
                 } else {
                     System.out.println("Primero ingrese nombres.");
