@@ -124,4 +124,13 @@ public class Complementos {
         }
         return aux;
     }
+
+    public static String leerCadenas(String soliciud){
+        sc.nextLine();
+        String cadena;
+            System.out.print(soliciud);
+            cadena = sc.nextLine();
+        return cadena;
+    }
+    
 }
