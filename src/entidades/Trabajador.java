@@ -8,10 +8,13 @@ public class Trabajador {
     
         
     public Trabajador(String nombre, double pagoPorHora, int cantidadHorasTrabajadas) {
-            this.nombre = nombre;
+            setNombre(nombre);
             this.pagoPorHora = pagoPorHora;
             this.cantidadHorasTrabajadas = cantidadHorasTrabajadas;
-        }
+    }
+    public void setNombre(String nombre){
+        this.nombre = nombre;
+    }
     public String getNombre() {
         return nombre;
     }
@@ -20,10 +23,14 @@ public class Trabajador {
     }
 
     public double getDescuento(){
-        return getSueldoBruto()*descuento;
+        return (double) Math.round(getSueldoBruto()*descuento*100)/100 ;
     }
 
     public double getSueldoNeto(){
-        return getSueldoBruto()-getDescuento();
+        return (double) Math.round((getSueldoBruto()-getDescuento())*100)/100 ;
+    }
+
+    public String toString(){
+        return nombre+"\t"+"\t"+getSueldoBruto()+"\t\t\t"+getDescuento()+"\t\t\t"+getSueldoNeto();
     }
 }
