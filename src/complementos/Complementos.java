@@ -64,7 +64,7 @@ public class Complementos {
         while (!stringValido) {
             System.out.print(solicitud);
             if (sc.hasNextInt() || sc.hasNextDouble()) {
-                System.out.println("Solo numeros no es un nombre.");
+                System.out.println("Solo numeros no es valido.");
                 sc.nextLine();
                 sc.nextLine();
             } else {
