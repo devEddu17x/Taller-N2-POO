@@ -20,7 +20,7 @@ public class PresentacionListaHabitaciones {
     public static void ejecutar(int opcion) {
         switch (opcion) {
             case 1:
-                if (ListaHabitaciones.getTamaño() < 31) {
+                if (ListaHabitaciones.getTamaño() < 30) {
                     Habitacion habitacion = new Habitacion();
                     ListaHabitaciones.agregarHabitacion(habitacion);
                     System.out.println("¡Se ha creado una nueva habitación!");
