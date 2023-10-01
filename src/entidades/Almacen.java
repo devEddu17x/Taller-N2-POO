@@ -14,8 +14,12 @@ public class Almacen {
     public static void mostrarProductos(){
         System.out.println("\nINDICE\t\tCODIGO\t\tNOMBRE\t\tSTOCK\n"); int i = 1;
         for (Producto producto : listaProductos){
-            System.out.println(i+"\t"+producto.toString());
+            System.out.println(i+"\t\t"+producto.toString()); i++;
         }
+    }
+
+    public static int getTamaño(){
+        return listaProductos.size();
     }
 
     public static String getCodigo(int indice){
@@ -66,9 +70,7 @@ public class Almacen {
         }
     
         Producto temp = lista.get(izquierda);
-        arreglo[izquierda] = arreglo[i - 1];
         lista.set(izquierda, lista.get(i-1));
-        arreglo[i - 1] = temp;
         lista.set(i-1, temp);
     
         return i - 1;
