@@ -42,7 +42,7 @@ public class Movimiento {
     public void aplicarEntrada(int indice) {
         Almacen.modificarStockProducto(indice, cantidad);
     }
-
+        
     public void aplicarSalida(int indice) {
         if (Almacen.getStockProducto(indice)<cantidad){
             int aux = cantidad - Almacen.getStockProducto(indice);

@@ -1,6 +1,8 @@
-package entidades;
+package datos;
 
 import java.util.ArrayList;
+
+import entidades.Trabajador;
 
 public class ListaTrabajador {
 

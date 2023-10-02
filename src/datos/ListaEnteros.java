@@ -1,4 +1,4 @@
-package entidades;
+package datos;
 
 public class ListaEnteros {
     private static int[] listaNumeros = new int[20];

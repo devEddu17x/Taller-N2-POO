@@ -1,7 +1,7 @@
 package presentacion;
 
 import complementos.Complementos;
-import entidades.ListaEnteros;
+import datos.ListaEnteros;
 
 public class PresentacionListaEnteros {
     public static int contadorEnteros = 0;

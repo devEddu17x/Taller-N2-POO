@@ -54,7 +54,6 @@ public class PresentacionTallerMecanico {
                     String codigo = Complementos.validarString("Ingrese el codigo del cliente: ",
                             "No es un codigo valido");
                     int indice = Taller.existeCliente(codigo);
-                    System.out.println(indice);
                     if (indice != -1) {
                         Taller.reportarOrdenesCliente(indice);
                     } else {

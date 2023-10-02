@@ -3,7 +3,7 @@ package presentacion;
 import java.util.Scanner;
 
 import complementos.Complementos;
-import entidades.ListaTrabajador;
+import datos.ListaTrabajador;
 import entidades.Trabajador;
 
 public class PresentacionListaTrabajador {
